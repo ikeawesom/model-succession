@@ -1,48 +1,57 @@
 # Model Succession Pipeline
 
-A lightweight prompt pipeline for preserving an AI coding agent's **reasoning methodology** across model handovers.
+If you spend enough time using coding agents from the terminal, you've probably had this thought:
 
-Designed primarily for **CLI LLM workflows** (such as Claude Code, Codex CLI, and similar agentic coding environments), where long-running projects often outlive a single model session.
+> *"My favorite model is about to hit its usage limit... now what?"*
 
-While this repository was built around my own **Claude Code** workflow, the underlying ideas are intentionally model-agnostic and can be adapted to other coding agents.
+This repository is for **CLI LLM users**. Whether you're using Claude Code today, Codex tomorrow, or whatever comes next.
 
-The goal isn't to preserve conversations, but to preserve **capability**.
+The idea is simple: **don't just hand over the conversation. Hand over the capability.**
 
 ## Workflow
 
-### 1. Generate the handbook
+### 1. Extract the capability
 
-Start a conversation with your source model.
+Give your current model `fable-handover.md` (Fable 5, in my case).
 
-Provide it with `fable-handover.md`.
+Instead of summarizing your project, it generates a **Knowledge Transfer Handbook** that externalizes its reasoning process, planning discipline, heuristics, orchestration strategies, and operational knowledge.
 
-The model generates a **Knowledge Transfer Handbook** describing its reasoning process, planning methodology, heuristics, orchestration strategies, and operational principles.
+Save the handbook.
 
-Save the generated handbook.
+### 2. Install the capability
 
-### 2. Install the capabilities
-
-Start a new conversation with your successor model.
+Start a fresh session with your successor model (Opus 4.8, in my case).
 
 Provide:
 
 * `opus-learn.md`
 * the generated **Knowledge Transfer Handbook**
 
-The successor model transforms the handbook into a compact operating system, including artifacts such as:
+The new model converts the handbook into a lightweight operating system (`SYSTEM.md`, `CLAUDE.md`, `OPERATING_MANUAL.md`, and more) designed to restore the original model's working style while minimizing future context and token usage.
 
-* `OPERATING_MANUAL.md`
-* `SYSTEM.md`
-* `CLAUDE.md`
+## Why?
 
-These compressed layers preserve the original handbook's capabilities while minimizing future context size and token usage.
+Long-running AI-assisted projects accumulate more than code.
 
-## Philosophy
+They accumulate judgment.
 
-The **Knowledge Transfer Handbook** remains the canonical source of truth.
+This workflow helps preserve that judgment across model switches, usage limits, and future generations of coding agents.
 
-The generated operating system distills that knowledge into reusable layers that can be efficiently loaded into future projects and sessions.
+## My workflow
 
-Although the examples in this repository are based on **Claude Code**, the workflow is applicable to any CLI-based LLM that supports long-running, agentic software development.
+I built this around **Claude Code**, where orchestrator handovers between models are a natural part of longer projects.
 
-Happy building! 🚀
+The concepts, however, are intentionally model-agnostic. Any CLI coding agent with multiple models and long-lived contexts could adopt a similar capability transfer workflow.
+
+If this saves you from the dreaded *"90% usage remaining"* moment, then it has already done its job.
+
+Happy building. 🚀
+
+---
+
+## Notes
+
+These prompts are soley for Claude Code's Fable 5 and Opus 4.8. You may choose to update the necessary models for your use cases.
+
+
+_Last updated: 7 July 2026_
