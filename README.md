@@ -49,9 +49,20 @@ Happy building. 🚀
 
 ---
 
-## Notes
+## Important notes
+
+This workflow **does not retrain or permanently improve** the successor model.
+
+It cannot make a weaker model "become" a stronger one.
+
+Instead, it provides structured guidance describing **how the predecessor model approached problems**, i.e. its planning methodology, reasoning workflows, heuristics, orchestration strategies, and operational discipline.
+
+Think of it as handing over an experienced engineer's playbook rather than upgrading the engineer's IQ.
+
+The successor model still operates within its own capabilities, knowledge and reasoning limits. The generated artifacts simply help it adopt a more consistent and effective way of working, reducing the amount of methodology that needs to be rediscovered during long-running projects.
+
+Your mileage will therefore depend on the successor model's own capabilities. Better models are generally able to internalize and apply the transferred operating methodology more faithfully than weaker ones.
 
 These prompts are soley for Claude Code's Fable 5 and Opus 4.8. You may choose to update the necessary models for your use cases.
-
 
 _Last updated: 7 July 2026_
